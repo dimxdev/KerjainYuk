@@ -52,3 +52,15 @@ function toLocalInputs(d: Date): { date: string; time: string } {
   const local = new Date(d.getTime() - offset).toISOString();
   return { date: local.slice(0, 10), time: local.slice(11, 16) };
 }
+
+/**
+ * Kapital di awal setiap kata, mis. "modul pengujian" -> "Modul Pengujian".
+ * Dipakai untuk judul tugas & nama kategori saat disimpan.
+ */
+export function toTitleCase(text: string): string {
+  return text
+    .toLowerCase()
+    .split(" ")
+    .map((word) => (word ? word[0].toUpperCase() + word.slice(1) : word))
+    .join(" ");
+}

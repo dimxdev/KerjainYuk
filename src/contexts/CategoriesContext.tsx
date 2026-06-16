@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { Category } from "../types";
 import { STORAGE_KEYS, getItem, setItem } from "../services/localStorageService";
+import { toTitleCase } from "../utils/formatter";
 
 const DEFAULT_CATEGORIES: Category[] = [
   { id: "kuliah", name: "Kuliah" },
@@ -30,14 +31,17 @@ export function CategoriesProvider({ children }: { children: ReactNode }) {
   function addCategory(name: string) {
     const trimmed = name.trim();
     if (!trimmed) return;
-    setCategories((prev) => [...prev, { id: crypto.randomUUID(), name: trimmed }]);
+    setCategories((prev) => [
+      ...prev,
+      { id: crypto.randomUUID(), name: toTitleCase(trimmed) },
+    ]);
   }
 
   function editCategory(id: string, name: string) {
     const trimmed = name.trim();
     if (!trimmed) return;
     setCategories((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, name: trimmed } : c))
+      prev.map((c) => (c.id === id ? { ...c, name: toTitleCase(trimmed) } : c))
     );
   }
 

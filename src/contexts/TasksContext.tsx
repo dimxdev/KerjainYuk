@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { HistoryTask, Task } from "../types";
 import { STORAGE_KEYS, getItem, setItem } from "../services/localStorageService";
 import { isOverdue } from "../utils/deadline";
+import { toTitleCase } from "../utils/formatter";
 
 /** Bentuk HistoryTask dari sebuah Task untuk dipindahkan ke riwayat. */
 function toHistory(task: Task, status: HistoryTask["status"]): HistoryTask {
@@ -74,7 +75,7 @@ export function TasksProvider({ children }: { children: ReactNode }) {
       ...prev,
       {
         id: crypto.randomUUID(),
-        title: input.title.trim(),
+        title: toTitleCase(input.title.trim()),
         categoryId: input.categoryId,
         deadline: input.deadline,
         createdAt: now,
@@ -88,7 +89,7 @@ export function TasksProvider({ children }: { children: ReactNode }) {
         t.id === id
           ? {
               ...t,
-              title: input.title.trim(),
+              title: toTitleCase(input.title.trim()),
               categoryId: input.categoryId,
               deadline: input.deadline,
             }

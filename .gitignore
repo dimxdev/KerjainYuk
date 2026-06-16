@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code
+.claude
+
+# Dokumen internal — bukan bagian dari aplikasi, tidak perlu di-publish
+PLAN.md
+KerjainYuk.md

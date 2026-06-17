@@ -1,6 +1,6 @@
 import type { HistoryTask } from "../../types";
 import { useCategories } from "../../hooks/useCategories";
-import { formatDateTime } from "../../utils/formatter";
+import { formatDateTimeWithDay } from "../../utils/formatter";
 import { getCategoryColor } from "../../utils/categoryColor";
 
 const STATUS_STYLE: Record<HistoryTask["status"], { badge: string; label: string }> = {
@@ -30,11 +30,11 @@ export default function HistoryCard({ item }: { item: HistoryTask }) {
             {item.title}
           </h3>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Deadline: {formatDateTime(item.deadline)}
+            Deadline: {formatDateTimeWithDay(item.deadline)}
           </p>
           {item.status === "completed" && item.completedAt && (
             <p className="text-sm text-emerald-600 dark:text-emerald-400">
-              Diselesaikan: {formatDateTime(item.completedAt)}
+              Diselesaikan: {formatDateTimeWithDay(item.completedAt)}
             </p>
           )}
         </div>

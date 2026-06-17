@@ -3,6 +3,7 @@ import { useTasks } from "../../hooks/useTasks";
 import TaskList from "../../components/task/TaskList";
 import MotivationBanner from "../../components/motivation/MotivationBanner";
 import StatsSummary from "../../components/statistics/StatsSummary";
+import { formatDateFull } from "../../utils/formatter";
 
 export default function Dashboard() {
   const { tasks, history, deleteTask, completeTask } = useTasks();
@@ -19,6 +20,13 @@ export default function Dashboard() {
 
   return (
     <section>
+      <div className="mb-4 flex items-center gap-2">
+        <span className="text-lg">📅</span>
+        <p className="text-sm font-medium capitalize text-slate-600 dark:text-slate-300">
+          {formatDateFull(new Date().toISOString())}
+        </p>
+      </div>
+
       <MotivationBanner />
 
       <StatsSummary

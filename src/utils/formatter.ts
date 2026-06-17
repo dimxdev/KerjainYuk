@@ -7,6 +7,13 @@ const dateFormatter = new Intl.DateTimeFormat("id-ID", {
   year: "numeric",
 });
 
+const dateLongFormatter = new Intl.DateTimeFormat("id-ID", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
 const dateTimeFormatter = new Intl.DateTimeFormat("id-ID", {
   day: "numeric",
   month: "short",
@@ -15,14 +22,33 @@ const dateTimeFormatter = new Intl.DateTimeFormat("id-ID", {
   minute: "2-digit",
 });
 
-/** Format ISO string jadi tanggal, mis. "Sen, 16 Jun 2026". */
+const dateTimeWithDayFormatter = new Intl.DateTimeFormat("id-ID", {
+  weekday: "short",
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+/** Format ISO string jadi tanggal singkat, mis. "Sen, 16 Jun 2026". */
 export function formatDate(iso: string): string {
   return dateFormatter.format(new Date(iso));
+}
+
+/** Format ISO string jadi tanggal lengkap, mis. "Selasa, 17 Juni 2026". */
+export function formatDateFull(iso: string): string {
+  return dateLongFormatter.format(new Date(iso));
 }
 
 /** Format ISO string jadi tanggal + waktu, mis. "16 Jun 2026, 23.59". */
 export function formatDateTime(iso: string): string {
   return dateTimeFormatter.format(new Date(iso));
+}
+
+/** Format ISO string jadi tanggal + waktu dengan hari, mis. "Sen, 16 Jun 2026, 23.59". */
+export function formatDateTimeWithDay(iso: string): string {
+  return dateTimeWithDayFormatter.format(new Date(iso));
 }
 
 /**

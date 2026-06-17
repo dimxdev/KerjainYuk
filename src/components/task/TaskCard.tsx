@@ -5,7 +5,7 @@ import {
   getDeadlineStatus,
   type DeadlineStatus,
 } from "../../utils/deadline";
-import { formatDateTime } from "../../utils/formatter";
+import { formatDateTimeWithDay } from "../../utils/formatter";
 import { getCategoryColor } from "../../utils/categoryColor";
 
 interface TaskCardProps {
@@ -66,7 +66,7 @@ export default function TaskCard({ task, onComplete, onEdit, onDelete }: TaskCar
             {task.title}
           </h3>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            {formatDateTime(task.deadline)}
+            {formatDateTimeWithDay(task.deadline)}
           </p>
         </div>
         <span

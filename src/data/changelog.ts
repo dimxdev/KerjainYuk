@@ -2,11 +2,10 @@
  * Update versi ini setiap kali deploy fitur baru.
  * Versi harus berubah agar service worker deteksi ada update.
  */
-export const APP_VERSION = "1.1.0";
+export const APP_VERSION = "1.2.0";
 
 export const WHATS_NEW: string[] = [
-  "🚀 App sekarang bisa dipakai offline (PWA)",
-  "⚡ Halaman lebih cepat dimuat (lazy loading)",
-  "🗜️ Ukuran download diperkecil",
-  "🔤 Format judul tugas & kategori tidak lagi mengubah huruf kapital (misal TBO tetap TBO)",
+  "🔤 Huruf kapital di judul & kategori tidak lagi diubah (misal TBO tetap TBO)",
+  "🎨 Warna status bar HP sekarang ikut tema light/dark",
+  "⚡ Fix layar putih sebentar saat buka app di dark mode",
 ];

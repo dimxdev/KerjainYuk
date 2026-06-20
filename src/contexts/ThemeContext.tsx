@@ -18,6 +18,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setItem(STORAGE_KEYS.theme, theme);
     document.documentElement.classList.toggle("dark", theme === "dark");
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (meta) meta.content = theme === "dark" ? "#0f172a" : "#ffffff";
   }, [theme]);
 
   function toggleTheme() {

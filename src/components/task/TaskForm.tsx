@@ -127,7 +127,7 @@ export default function TaskForm({ initial, submitLabel, onSubmit, onCancel }: T
       <div className="flex flex-wrap gap-2 pt-1">
         <button
           type="submit"
-          className="rounded-full bg-linear-to-r from-indigo-500 to-fuchsia-500 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-fuchsia-500/30 transition-all hover:shadow-md hover:brightness-110"
+          className="rounded-full bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
         >
           {submitLabel}
         </button>

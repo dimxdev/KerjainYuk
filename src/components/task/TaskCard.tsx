@@ -144,7 +144,7 @@ export default function TaskCard({ task, onComplete, onEdit, onDelete }: TaskCar
                   onComplete?.(task.id);
                   setShowConfirm(false);
                 }}
-                className="rounded-full bg-linear-to-r from-emerald-500 to-teal-500 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-emerald-500/30 transition-all hover:brightness-110"
+                className="rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
               >
                 Ya, Selesai!
               </button>

@@ -43,7 +43,7 @@ export default function CategoryForm({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="rounded-full bg-linear-to-r from-indigo-500 to-fuchsia-500 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-fuchsia-500/30 transition-all hover:shadow-md hover:brightness-110"
+          className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700"
         >
           {submitLabel}
         </button>

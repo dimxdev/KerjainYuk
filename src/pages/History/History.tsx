@@ -12,13 +12,12 @@ const FILTERS: { value: Filter; label: string }[] = [
 ];
 
 export default function History() {
-  const { history } = useTasks();
+  const { history, deleteHistory } = useTasks();
   const [filter, setFilter] = useState<Filter>("all");
 
   const items = useMemo(() => {
     const filtered =
       filter === "all" ? history : history.filter((h) => h.status === filter);
-    // Terbaru di atas berdasarkan kapan dipindah ke riwayat.
     return [...filtered].sort(
       (a, b) => new Date(b.movedAt).getTime() - new Date(a.movedAt).getTime()
     );
@@ -34,6 +33,7 @@ export default function History() {
       <div className="mb-4 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
           <button
+            type="button"
             key={f.value}
             onClick={() => setFilter(f.value)}
             className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
@@ -60,7 +60,11 @@ export default function History() {
       ) : (
         <ul className="space-y-3">
           {items.map((item) => (
-            <HistoryCard key={`${item.id}-${item.movedAt}`} item={item} />
+            <HistoryCard
+              key={`${item.id}-${item.movedAt}`}
+              item={item}
+              onDelete={deleteHistory}
+            />
           ))}
         </ul>
       )}

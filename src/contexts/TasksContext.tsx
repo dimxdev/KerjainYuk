@@ -32,6 +32,7 @@ export interface TasksContextValue {
   deleteTask: (id: string) => void;
   completeTask: (id: string) => void;
   getTask: (id: string) => Task | undefined;
+  deleteHistory: (id: string) => void;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -113,9 +114,13 @@ export function TasksProvider({ children }: { children: ReactNode }) {
     return tasks.find((t) => t.id === id);
   }
 
+  function deleteHistory(id: string) {
+    setHistory((prev) => prev.filter((h) => h.id !== id));
+  }
+
   return (
     <TasksContext.Provider
-      value={{ tasks, history, addTask, editTask, deleteTask, completeTask, getTask }}
+      value={{ tasks, history, addTask, editTask, deleteTask, completeTask, getTask, deleteHistory }}
     >
       {children}
     </TasksContext.Provider>

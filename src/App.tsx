@@ -3,6 +3,7 @@ import { router } from "./router";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { TasksProvider } from "./contexts/TasksContext";
+import UpdatePrompt from "./components/shared/UpdatePrompt";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <CategoriesProvider>
         <TasksProvider>
           <RouterProvider router={router} />
+          <UpdatePrompt />
         </TasksProvider>
       </CategoriesProvider>
     </ThemeProvider>

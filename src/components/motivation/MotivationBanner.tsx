@@ -4,14 +4,13 @@ export default function MotivationBanner() {
   const quote = useMotivation();
 
   return (
-    <div className="relative mb-5 overflow-hidden rounded-2xl bg-linear-to-br from-indigo-500 via-violet-500 to-fuchsia-500 px-5 py-4 text-white shadow-md shadow-indigo-500/20">
-      {/* Aksen dekoratif */}
-      <div className="pointer-events-none absolute -right-6 -top-8 h-24 w-24 rounded-full bg-white/10" />
-      <div className="pointer-events-none absolute -bottom-10 right-10 h-20 w-20 rounded-full bg-white/10" />
-      <p className="relative text-xs font-semibold uppercase tracking-wider text-white/70">
+    <div className="mb-5 rounded-2xl border border-indigo-100 bg-indigo-50 px-5 py-4 dark:border-indigo-500/20 dark:bg-indigo-500/10">
+      <p className="text-xs font-semibold uppercase tracking-wider text-indigo-500 dark:text-indigo-400">
         Motivasi hari ini
       </p>
-      <p className="relative mt-1 font-medium leading-snug">{quote}</p>
+      <p className="mt-1 font-medium leading-snug text-slate-700 dark:text-slate-200">
+        {quote}
+      </p>
     </div>
   );
 }
